@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>artDialog</title>
+<meta name="keywords" content="artDialog,javascript,dialog,jQuery" />
+<meta name="description" content="artDialog鏄竴涓簿宸х殑web瀵硅瘽妗嗙粍浠讹紝铡嬬缉鍚庡彧链夊崄澶欿B锛屽苟涓斾笉渚濊禆鍏朵粬妗嗘灦銆? />
+<script>
+// skin demo
+(function() {
+	var _skin, _jQuery;
+	var _search = window.location.search;
+	if (_search) {
+		_skin = _search.split('demoSkin=')[1];
+		_jQuery = _search.indexOf('jQuery=true') !== -1;
+		if (_jQuery) document.write('<scr'+'ipt src="jquery-1.6.2.min.js"></sc'+'ript>');
+	};
+	
+	document.write('<scr'+'ipt src="artDialog.source.js?skin=' + (_skin || 'default') +'"></sc'+'ript>');
+	window._isDemoSkin = !!_skin;
+})();
+</script>
+<script src="./plugins/iframeTools.source.js"></script>
+<script src="./_doc/demo.js"></script>
+<script src="./_doc/highlight/highlight.pack.js"></script>
+<script src="./_doc/highlight/languages/javascript.js"></script>
+<script>
+hljs.tabReplace = '    ';
+hljs.initHighlightingOnLoad();
+</script>
+<link href="./_doc/demo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="./_doc/highlight/styles/magula.css" />
+</head>
+
+<body>
+<div id="doc">
+  <div id="header">
+    <h1 id="logo"><a href="index.html">artDialog</a></h1>
+    <ul id="nav" class="nav">
+      <li><a href="index.html" class="home">棣栭〉</a></li>
+      <li><a href="./_doc/API.html" class="api">鏂囨。</a></li>
+      <li><a href="./_doc/down.html" class="down">涓嬭浇</a></li>
+      <li><a href="./_doc/log.html" class="log">镟存柊</a></li>
+      <li><a href="./_doc/labs.html" class="labs">瀹为獙</a></li>
+      <li><a href="./_doc/license.html" class="license">鎺堟潈</a></li>
+      |
+      <li><a href="#" id="nav-skin">镄偆</a></li>
+    </ul>
+  </div>
+  <div id="main">
+    <div class="tips" style="margin:4px 5px; padding:8px; background:#EEF7F5; text-align:left; color:#000; border-radius:3px; border:1px solid #D7EAE2; ">artDialog鏄竴涓熀浜巎avascript缂栧啓镄勫璇濇缁勪欢锛屽畠鎷ユ湁绮捐嚧镄勭晫闱笌鍙嫔ソ镄勬帴鍙?/div>
+    <dl class="about">
+      <dt>镊€傚簲鍐呭</dt>
+      <dd>artDialog镄勭壒娈奤I妗嗘灦鑳藉阃傚簲鍐呭鍙桦寲锛岀敋镊宠繛澶栭儴绋嫔簭锷ㄦ€佹彃鍏ョ殑鍐呭瀹冧粛铹惰兘镊€傚簲锛屽洜姝や綘涓嶅繀铡昏€冭槛娑堟伅鍐呭灏哄浣跨敤瀹冦€傚畠镄勬秷鎭鍣ㄧ敋镊宠兘澶熸抵鎹搴﹁鏂囨湰灞呬腑鎴栧眳宸﹀榻悫€斺€旇繖涓€鍒囧叏鏄痱HTML+CSS铡熺敓瀹炵幇銆?/dd>
+      <dt>瀹屽杽镄勬帴鍙?/dt>
+      <dd>瀹幂殑鎺ュ彛瀹屽杽锛屽彲浠ヨ交鏄扑笌澶栭儴绋嫔簭閰嶅悎浣跨敤銆傚寮傛鍐椤叆娑堟伅銆佹带鍒朵綅缃€佸昂瀵搞€佹樉绀轰笌闅愯棌銆佸叧闂瓑銆?/dd>
+      <dt>缁呜嚧镄勪綋楠?/dt>
+      <dd>濡傛灉涓嶆槸鍦ㄨ緭鍏ョ姸镐侊紝瀹冩敮鎸丒sc蹇嵎阌叧闂绂鍙寚瀹氩湪鍏幂礌闄勮繎寮瑰嚭锛岃鎿崭綔镟翠究鎹凤绂鏅鸿兘缁欐寜阍坊锷犵剑镣癸绂榛勯噾姣斾緥鍨傜洿灞呬腑锛涜秴澶у搷搴斿尯鍩熺壒鍒负ipad绛夎Е灞忚澶囦紭鍖栵绂棰勫厛缂揿瓨镄偆锲剧墖镟村揩鍝嶅簲钬︹€?/dd>
+      <dt>璺ㄥ钩鍙板寸瀹?/dt>
+      <dd>鍏煎锛欼E6+銆丗irefox銆丆hrome銆丼afari銆丱pera浠ュ强iPad绛夌Щ锷ㄨ澶囥€傚苟涓擨E6涓嬩篃鑳芥敮鎸佺幇浠ｆ祻瑙埚櫒镄勯润姝㈠畾浣?<a href="http://www.planeart.cn/?p=877" target="_blank" title="阒呰浣滆€卛e6Fixed鐩稿叧鍗氭枃" style="text-decoration:underline">fixed</a>)銆?!--[if gte IE 7]><!-->瑕嗙洊涓嬫媺鎺т欢<!--<![endif]--><!--[if lt IE 7]><select><option>瑕嗙洊涓嬫媺鎺т欢</option></select><![endif]-->銆乤lpha阃氶亾png鑳屾櫙銆?/dd>
+    </dl>
+    <h2>蹇€熷叆闂?/h2>
+    <h3>涓€銆佷娇鐢ㄤ紶缁熺殑鍙傛暟</h3>
+    <p>art.dialog(content, ok, cancel)</p>
+    <div id="demoCode01">
+      <pre><code class=" javascript">art.dialog('绠€鍗曟剦镇︾殑鎺ュ彛锛屽己澶х殑琛ㄧ幇锷涳紝浼橀泤镄勫唴閮ㄥ疄鐜?, function(){alert('yes');});</code></pre>
+    </div>
+    <p class="buttons">
+      <button class="runCode" id="btn1" title="btn1" name="demoCode01">杩愯&raquo;</button>
+    </p>
+    <h3>浜屻€佷娇鐢ㄥ瓧闱㈤噺浼犲弬</h3>
+    <p>art.dialog(options)</p>
+    <div id="demoCode02">
+      <pre><code class=" javascript">var dialog = art.dialog({
+    title: '娆㈣繋',
+	content: '娆㈣繋浣跨敤artDialog瀵硅瘽妗嗙粍浠讹紒',
+	icon: 'succeed',
+    follow: document.getElementById('btn2'),
+    ok: function(){
+        this.title('璀﹀憡').content('璇锋敞镒廰rtDialog涓ょ鍚庡皢鍏抽棴锛?).lock().time(2);
+        return false;
+    }
+});
+</code></pre>
+    </div>
+    <p class="buttons">
+      <button class="runCode" id="btn2" title="btn2" name="demoCode02">杩愯&raquo;</button>
+    </p>
+    <p>镟村閰岖疆鍙傛暟鐢ㄦ硶璇锋煡阒匒PI鏂囨。锛?<a href="./_doc/API.html#options">./_doc/API.html#options</a></p>
+    <h3>涓夈€佹墿灞曟柟娉?/h3>
+    <p>闇€瑕佸寮瑰嚭鍚庣殑瀵硅瘽妗嗘搷浣滐紵artDialog绠€鍗曞疄鐢ㄧ殑镓╁睍鏂规硶鍙互浣胯繖涓€鍒囧彉寰楃亩鍗曘€?/p>
+    <p>濡傚湪ajax寮傛鎿崭綔涓紝鎴戜滑鍙互鍏埚畾涔変竴涓彉閲忓紩鐢ㄥ璇濇杩斿洖镄勬墿灞曟柟娉曪细</p>
+    <pre><code class=" javascript">var myDialog = art.dialog();// 鍒濆鍖栦竴涓甫链塴oading锲炬爣镄勭┖瀵硅瘽妗?
+jQuery.ajax({
+	url: 'http://web5.qq.com/content?id=1',
+    success: function (data) {
+        myDialog.content(data);// 濉厖瀵硅瘽妗嗗唴瀹?
+    }
+});
+</code></pre>
+    <p>濡傛灉闇€瑕佷娇鐢ㄧ▼搴忔带鍒跺叧闂紝鍙互浣跨敤"close"鏂规硶鍏抽棴瀵硅瘽妗嗭细</p>
+    <pre><code class=" javascript">myDialog.close();</code></pre>
+    <p>镟村镓╁睍鏂规硶鐢ㄦ硶璇锋煡阒匒PI鏂囨。锛?<a href="./_doc/API.html#API">./_doc/API.html#API</a></p>
+    <h2>鎻掍欢锛氭鏋跺簲鐢ㄥ伐鍏?/h2>
+    <p>artDialog阍埚CMS绫荤殑妗嗘灦搴旗敤鎻愪緵浜嗕笓灞炴彃浠讹紝濡傜┛瓒婃鏋躲€乮frame銆丄JAX銆佽法妗嗘灦浼犲€兼搷浣灭瓑銆?/p>
+    <p>渚嬶细 浣跨敤open鏂规硶宓屽叆椤甸溃锛屽苟浣跨敤data鏂规硶鍦ㄥ悇涓猧frame闂翠紶阃掓暟鎹细</p>
+    <div id="demoCode04-3">
+      <pre><code class="javascript">var val = document.getElementById('demoInput04-3').value;
+art.dialog.data('test', val);
+art.dialog.data('homeDemoPath', './_doc/');
+
+// 姝ゆ椂 iframeA.html 椤甸溃鍙互浣跨敤 art.dialog.data('test') 銮峰彇鍒版暟鎹紝濡傦细
+// document.getElementById('aInput').value = art.dialog.data('test');
+art.dialog.open('./_doc/iframeA.html');
+</code></pre>
+    </div>
+    <p class="buttons"> 璇疯緭鍏ユ祴璇曟枃瀛楋细
+      <input id="demoInput04-3" title="demoInput04-3" type="text" value="绮句簬蹇冿紝绠€浜庡舰" style="padding:4px; width:16em; margin-right:10px" />
+      <button class="runCode" name="demoCode04-3">杩愯&raquo;</button>
+    </p>
+    <p>鎻掍欢镟村锷熻兘璇锋煡阒匒PI鏂囨。锛?<a target="_blank" href="./iframeTop.html">./iframeTop.html</a></p>
+    <h2>jQuery + artDialog</h2>
+    <p>artDialog鎻愪緵浜嗕竴涓猨Query鐗堟湰锛屽姛鑳戒笌镙囧嗳鐗堜竴镊达紝璋幂敤鍙渶瑕佹妸art鍓岖紑鏀规垚jQuery镄勫懡鍚岖┖闂淬€?/p>
+    <pre><code class=" javascript">// 鏅€氲皟鐢?
+$.dialog({content:'hello world!'});
+
+// 浣跨敤阃夋嫨鍣ㄦ柟寮忥紝姝ゆ椂镊姩浣跨敤缁戝畾浜唋ive click浜嬩欢锛屽悓镞跺惎鐢╢ollow妯″纺
+$('#main .test').dialog({content: 'hello world'});</code></pre>
+<p>(链€浣庡寸瀹筳query1.3.2锛屼絾妗嗘灦搴旗敤鎻掍欢闇€瑕乯query1.4+杩愯<a href="#?" title="jQuery鐗堟湰灏忎簬1.4涓嶈兘銮峰彇iframe鍐呴儴灏哄锛屽镊磑pen鏂规硶镞犳硶镊€傚簲鍐呭灏哄">[?]</a>)</p>
+    <h2>鑱旗郴</h2>
+
+
+<div style="margin:4px 0; padding:5px; background:#EEF7F5; text-align:left; color:#000; border-radius:3px; border:1px solid #D7EAE2;" class="tips"><span style="color:#DFB113">娉ㄦ剰锛?/span>artDialog4+鍗冲皢锅沧缁存姢锛屽湪妗嗘灦婊″ぉ椋炵殑镞朵唬缁撴潫鍚庯紝鍏跺巻鍙蹭娇锻藉凡缁忓畲鎴愩€傛柊鐗堟湰<a href="https://github.com/aui/artDialog" style="text-decoration:underline;">artDialog 5+</a>寰埚皬锛屽嵈渚濈劧锷ㄤ汉銆傝嫢瑕佽縼绉伙紝璇锋姏寮僫frame锛屼娇鐢╝jax鎶€链€?/div>
+
+    <p>濡傛灉浣犲artDialog链変粈涔堟剰瑙佸缓璁彲浠ョ敤涓嬮溃浠绘剰涓€绉嶈仈绯绘柟寮忔垒鍒颁綔钥呫€俛rtDialog涓€鐩村湪涓嶆柇瀹屽杽镊韩锛岃繖涓剦镇︾殑杩囩▼涓劅璋㈡湁浣犵殑鍙备笌锝?/p>
+    <p><strong>鎻愪氦BUG蹇呭椤?/strong>锛?銆佹祻瑙埚櫒鍚岖О锛岀増链?2銆乤rtDialog鐗堟湰鍙凤纸鍙敮鎸?+鐗堟湰锛?3銆佺亩鏄庢壖瑕佺殑鎻忚堪淇℃伅 4銆佸缓璁彁鍙栦竴浠绍UG DEMO锛岃繖镙疯В鍐抽棶棰樼殑姒傜巼澧炲姞300%</p>
+    <p>濡傛灉瀵逛娇鐢ㄩ棶棰樻湁鐤戞儜锛屽彲浠ュ墠寰€鐢?artDialog 鐖卞ソ钥呭缓绔嬬殑QQ缇ゅ姹傚府锷╋纸鍓嶆彁鏄厛镊繁阒呰鏂囨。锛夛细 44030323 </p>
+    <p>浣滆€咃细绯栭ゼ<br />
+      闾锛?span id="myEmail"></span> <span style="color:#990">(浠呯敤浣渂ug鎻愪氦)</span><br />
+      缃戠珯锛?a href="http://www.planeart.cn" target="_blank">PlaneArt.Cn</a><br />
+      寰崥锛?a href="http://t.qq.com/tangbin">t.qq.com/tangbin</a></p>
+    <h2>鎹愯禒</h2>
+    <p>artDialog灏辨槸浣犱竴鐩存兂瑕佺殑瀵硅瘽妗嗕箞锛熷搰锝为偅涔堟垜闱炲父链熷緟镇ㄨ兘澶熺儹鎯呯殑鎻愪緵15鍏冩垨钥呭叾浠栭噾棰濈殑鎹愯禒榧揿姳锝炴濡傛偍鏀寔鍏朵粬寮€婧愰」鐩竴镙枫€?/p>
+    <p>鏀粯瀹? <a href="https://me.alipay.com/planeart" target="_blank">https://me.alipay.com/planeart</a></p>
+    <p>镇ㄥ洜濡傛灉浣跨敤artDialog钥屽弹鐩婃垨钥呮劅鍒版剦镇︼紝镇ㄨ缮鍙互杩欐牱甯侄artDialog鎴愰昵锛?/p>
+    <p> 1銆佸叡鍚屽弬涓庡苟瀹屽杽artDialog鎴栫敤blog/寰崥/Twitter鎶婂畠鍒嗕韩瀹幂粰镟村镄勪汉銆?/p>
+    <p> 2銆佸artDialog链夊垢琚敤鍦ㄤ綘镄勯」鐩紝璇锋偍鑱旗郴鎴戯紝鎴戝悗缁皢鍦╝rtDialog涓婚〉灞旷ず镇ㄩ」鐩?浼佷笟镄凩OGO锛堢洰鍓嶆湁鐩涘ぇphpCMS銆佽吘璁€佷腑锲界数淇＄瓑浼佷笟浣跨敤瀹冿级銆?/p>
+  </div>
+  <div id="footer"></div>
+</div>
+<script>
+(function(){
+	var myMail = 1987 + '.' + 'tangbin' + '@' + 'gmail.com';
+	myMail = '<a href="mailto:' + myMail + '">' + myMail + '</a>';
+	document.getElementById('myEmail').innerHTML = myMail;
+	
+
+})();
+</script>
+<script>_isDemoSkin && window._demoSkin && _demoSkin();</script>
+</body>
+</html>
